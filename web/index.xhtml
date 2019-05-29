@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <h:head>
+      <title>Логарифм онлайн</title>
+      <link rel="stylesheet" type="text/css" href="css/main.css"/>
+   </h:head>
+   <h:body>
+
+      <h:panelGroup layout="block" styleClass="main">
+         <h:form >
+            <h:panelGroup layout="block" styleClass="block">
+               <h:outputLabel for="arg" value="Аргумент"/>
+               <h:inputText id="arg" title="Введите число" value="#{logarithmBean.arg}"
+                            onclick="this.select()"
+                            converter="javax.faces.Double"
+                            converterMessage="Повторите ввод. Введите число!">
+                  <f:validator validatorId="validators.LogarithmValidator"/>
+               </h:inputText>
+               <h:message for="arg" errorClass="error"/>
+            </h:panelGroup>
+
+            <h:panelGroup layout="block" styleClass="block">
+               <h:outputLabel for="base" value="Основание"/>
+               <h:inputText id="base" title="Введите число" value="#{logarithmBean.base}"
+                            onclick="this.select()"
+                            converter="javax.faces.Double"
+                            converterMessage="Повторите ввод. Введите число!">
+                  <f:validator validatorId="validators.LogarithmValidator"/>
+               </h:inputText>
+               <h:message for="base" errorClass="error"/>
+            </h:panelGroup>
+
+            <h:commandButton styleClass="button" action="#{logarithmBean.calcResult}" value="Посчитать" />
+         </h:form>
+      </h:panelGroup>
+   </h:body>
+</html>
